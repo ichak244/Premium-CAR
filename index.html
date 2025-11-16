@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Premium CAR</title>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">
+        <pre> <span class="logo-premium" >Premium</span>   <span class="logo-car">CAR</span></pre>
+      </a>
+      <nav class="header-nav" id="headerNav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Recipes</a></li>
+          <li><a href="#">Article</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Purchase</a></li>
+        </ul>
+      </nav>
+      <div class="imgAndInput" id="imgAndInput">
+        <img src="images/search.png" alt="search" id="search" />
+        <input type="text" id="inputSearch" placeholder="Search..." />
+      </div>
+
+      <div class="header-nav-burger" id="headerNavBurger" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <script>
+      const logoPremium = document.querySelector(".logo-premium");
+      const logoCar = document.querySelector(".logo-car");
+
+      logoPremium.addEventListener("mouseenter", () => {
+        logoCar.textContent =
+          logoCar.textContent.charAt(0).toUpperCase() +
+          logoCar.textContent.slice(1).toLowerCase();
+      });
+
+      logoPremium.addEventListener("mouseleave", () => {
+        logoCar.textContent = logoCar.textContent.toUpperCase();
+      });
+    </script>
+
+    <script>
+      let search = document.getElementById("search");
+      let inputSearch = document.getElementById("inputSearch");
+      let imgAndInput = document.getElementById("imgAndInput");
+
+      search.addEventListener("click", () => {
+        if (inputSearch.classList.toggle("active")) {
+          imgAndInput.classList.remove("active");
+        }
+        imgAndInput.classList.add("active");
+      });
+    </script>
+
+    <script>
+      const headerNavBurger = document.getElementById("headerNavBurger");
+      const headerNav = document.getElementById("headerNav");
+      headerNavBurger.addEventListener("click", () => {
+        headerNav.classList.toggle("navTwo");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+html,
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+}
+
+body {
+    margin: 0;
+    font-family: "PT_Sans";
+    color: var(--black);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "PT_Sans";
+    src: url(PT_Sans/PTSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url(Lato/Lato-Regular.ttf);
+}
+
+:root {
+    --black: #000000;
+    --blackTwo: #171717;
+    --blackButton: #232323;
+    --white: #FFFFFF;
+    --gray: #999999;
+    --grayTwo: #666666;
+    --grayTags: #EBEBEB;
+    --grayPlaceholderText: #AEB3BB;
+    --grayPlaceholderBorder: #E5E5E5;
+    --footerInput: #373737;
+    --blue: #4A90E2;
+}
+
+/* header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--black);
+    height: 5rem;
+}
+
+.logo pre {
+    color: var(--white);
+    font-family: "Lato";
+}
+
+.logo-premium:hover {
+    background-color: var(--blue);
+    border-radius: 4px;
+    padding: 4px 4px;
+    text-transform: uppercase
+}
+
+.logo .logo-car {
+    background-color: var(--blue);
+    border-radius: 4px;
+    padding: 4px 4px;
+}
+
+
+.logo-premium:hover~.logo-car {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    text-transform: capitalize !important;
+}
+
+.header-nav {
+    position: relative;
+    right: 3rem;
+}
+
+.header-nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+.header-nav ul li a {
+    position: relative;
+    color: var(--white);
+    outline: none;
+}
+
+.header-nav ul li a:active,
+.header-nav ul li a:focus {
+    color: var(--blue);
+}
+
+.header-nav ul li a:active::after,
+.header-nav ul li a:focus::after {
+    background-color: var(--blue);
+}
+
+.header-nav ul li a::after {
+    content: "";
+    width: 0%;
+    height: 1px;
+    border: none;
+    background-color: var(--grayPlaceholderBorder);
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+}
+
+.header-nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+header .imgAndInput img {
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    top: 3.5px;
+    padding-right: 8px;
+}
+
+header input.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+header input {
+    position: relative;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: 0.4s ease-in-out;
+    pointer-events: none;
+    border: none;
+    border-radius: 3px;
+    padding: 4px 5px;
+    background-color: var(--blackButton);
+    color: var(--white);
+}
+
+
+header input:focus {
+    outline: 1px solid var(--white);
+    border-radius: 10px;
+}
+
+header input::placeholder {
+    opacity: 0.6;
+    color: var(--white);
+}
+
+.header-nav-burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+    cursor: pointer;
+    outline: none;
+}
+
+.header-nav-burger:hover span {
+    background-color: var(--blue);
+}
+
+.header-nav-burger:active span {
+    background-color: #0650a5;
+}
+
+.header-nav-burger:focus span {
+    background-color: #0650a5;
+}
+
+.header-nav-burger span {
+    width: 100%;
+    height: 2.1px;
+    background-color: var(--white);
+}
+
+@media(max-width:991px) {
+    .header-nav ul li a {
+        font-size: 15px;
+    }
+
+    .header-nav ul {
+        display: flex;
+        gap: 1.2rem;
+    }
+}
+
+@media(max-width:767px) {
+    .header-nav-burger {
+        display: flex;
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+
+    .header-nav.navTwo {
+        display: block;
+        position: absolute;
+        right: 0;
+        width: 8rem;
+        background-color: var(--gray);
+        top: 5rem;
+        border-radius: 5px;
+    }
+
+    .header-nav.navTwo ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header input {
+        position: relative;
+        opacity: 0;
+        transform: scale(0.6);
+        transition: 0.4s ease-in-out;
+        pointer-events: none;
+        border: none;
+        border-radius: 3px;
+        padding: 4px 5px;
+        background-color: var(--blackButton);
+        color: var(--white);
+        width: 8rem;
+        font-size: 12px;
+    }
+
+    header input::placeholder {
+        opacity: 0.6;
+        color: var(--white);
+    }
+}
